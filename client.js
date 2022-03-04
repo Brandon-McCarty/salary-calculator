@@ -17,5 +17,13 @@ function readyNow(){
 
 function addEmployee() {
     console.log('CLICK');
+    $('#newEmployee').append(`<tr> 
+        <td>${employee.firstName}</td>
+        <td>${employee.lastName}</td>
+        <td>${employee.id}</td>
+        <td>${employee.title}</td>
+        <td>${employee.salary}</td>
+    </tr>
+    `)
     
 }
