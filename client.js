@@ -1,17 +1,18 @@
 $(readyNow);
 
-let employee = {
+let fake = {
     firstName: 'Bob',
     lastName: 'Smith',
     id: 2354,
     title: 'President',
-    salary: '$150000'
+    salary: 150000
 };
 
-console.log(employee);
+let salaryTotal = [];
+// console.log(employee);
 
 
-function readyNow(){
+function readyNow() {
     $('#submitBtn').on('click', addEmployee)
 }
 
@@ -23,8 +24,9 @@ function addEmployee() {
         id: $('#idInput').val(),
         title: $('#titleInput').val(),
         salary: $('#salaryInput').val()
-    };
-    $('#newEmployee').append(`<tr> 
+    }; // creating employee object to gather data
+    $('#newEmployee').append(`
+    <tr> 
         <td>${employee.firstName}</td>
         <td>${employee.lastName}</td>
         <td>${employee.id}</td>
@@ -32,6 +34,12 @@ function addEmployee() {
         <td>${employee.salary}</td>
         <td><button>Delete</button></td>
     </tr>
-    `)
-    
+    `); // adding new table row
+    $('.inputs').val(''); // clear inputs
+
+    salaryTotal.push(fake.salary)
+
+
 }
+
+console.log(salaryTotal);
