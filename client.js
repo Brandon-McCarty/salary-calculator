@@ -7,13 +7,14 @@ let fake = {
     title: 'President',
     salary: 150000
 };
-
-let salaryTotal = [];
-// console.log(employee);
+let fakeSalary = [50, 70, 100]
+let employees = []; // store employee info
 
 
 function readyNow() {
     $('#submitBtn').on('click', addEmployee)
+    $('#submitBtn').on('click', monthlySalary)
+
 }
 
 function addEmployee() {
@@ -35,11 +36,29 @@ function addEmployee() {
         <td><button>Delete</button></td>
     </tr>
     `); // adding new table row
+    employees.push(employee);
     $('.inputs').val(''); // clear inputs
 
-    salaryTotal.push(fake.salary)
+    
+    // SALARY CALCULATION
+    // salaryTotal.push(employee.salary)
+    
+    // for (employee of employees){
+    //     let total = 0;
+    //     $('#monthlySalary').empty();
+    //     $('#monthlySalary').append(total);
+    // }
 
 
 }
 
-console.log(salaryTotal);
+function monthlySalary() {
+    $('#monthlySalary').empty();
+    let total = 0;
+    for (employee of employees){
+        total += Number(employee.salary);
+    }
+        $('#monthlySalary').append(total);
+}
+
+// console.log(salaryTotal);
