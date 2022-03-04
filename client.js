@@ -1,19 +1,20 @@
 $(readyNow);
 
-let fake = {
-    firstName: 'Bob',
-    lastName: 'Smith',
-    id: 2354,
-    title: 'President',
-    salary: 150000
-};
+// let fake = {
+//     firstName: 'Bob',
+//     lastName: 'Smith',
+//     id: 2354,
+//     title: 'President',
+//     salary: 150000
+// };
 
 // let fakeSalary = [50, 70, 100]
 let employees = []; // store employee info
 
 
 function readyNow() {
-    $('#submitBtn').on('click', addEmployee)
+    $('#submitBtn').on('click', addEmployee);
+    $(document).on('click', '.deleteBtn', deleteEmployee);
     // $('#submitBtn').on('click', monthlySalary)
 
 }// end readyNow
@@ -35,7 +36,7 @@ function addEmployee() {
         <td>${employee.id}</td>
         <td>${employee.title}</td>
         <td>${employee.salary}</td>
-        <td><button>Delete</button></td>
+        <td><button class="deleteBtn">Delete</button></td>
     </tr>
     `); // adding new table row
     employees.push(employee);
@@ -51,7 +52,7 @@ function addEmployee() {
     //     $('#monthlySalary').empty();
     //     $('#monthlySalary').append(total);
     // }
-    
+
     $('#monthlySalary').empty();
     let total = 0;
     for (employee of employees) {
@@ -72,3 +73,8 @@ function addEmployee() {
 // }// end monthlySalary
 
 // console.log(salaryTotal);
+
+// DELETE EMPLOYEE
+function deleteEmployee(){
+    console.log('clickBAM');
+}
