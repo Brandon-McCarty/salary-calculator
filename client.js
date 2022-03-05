@@ -29,16 +29,32 @@ function addEmployee() {
         salary: $('#salaryInput').val()
     }; // creating employee object to gather data
 
-    $('#newEmployee').append(`
-    <tr> 
-        <td>${employee.firstName}</td>
-        <td>${employee.lastName}</td>
-        <td>${employee.id}</td>
-        <td>${employee.title}</td>
-        <td>${employee.salary}</td>
-        <td><button class="deleteBtn">Delete</button></td>
-    </tr>
-    `); // adding new table row
+    if (employee.salary > 20000) {
+        $('#newEmployee').append(`
+        <tr> 
+            <td>${employee.firstName}</td>
+            <td>${employee.lastName}</td>
+            <td>${employee.id}</td>
+            <td>${employee.title}</td>
+            <td class="warning">${employee.salary}</td>
+            <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+        `);
+    } // end if
+
+    else {
+        $('#newEmployee').append(`
+        <tr> 
+            <td>${employee.firstName}</td>
+            <td>${employee.lastName}</td>
+            <td>${employee.id}</td>
+            <td>${employee.title}</td>
+            <td>${employee.salary}</td>
+            <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+        `); // adding new table row
+    }// end else
+    
     employees.push(employee);
 
     $('.inputs').val(''); // clear inputs
@@ -75,7 +91,7 @@ function addEmployee() {
 // console.log(salaryTotal);
 
 // DELETE EMPLOYEE
-function deleteEmployee(){
+function deleteEmployee() {
     // console.log('clickBAM');
     // console.log($(this).closest("tr"));
     // // let removeRow = $(this).closest("tr");
