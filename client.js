@@ -1,13 +1,5 @@
 $(readyNow);
 
-// let fake = {
-//     firstName: 'Bob',
-//     lastName: 'Smith',
-//     id: 2354,
-//     title: 'President',
-//     salary: 150000
-// };
-
 // let fakeSalary = [50, 70, 100]
 let employees = []; // store employee info
 
@@ -36,7 +28,7 @@ function addEmployee() {
             <td>${employee.lastName}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td class="warning">${employee.salary}</td>
+            <td class="warning">$${employee.salary}</td>
             <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `);
@@ -49,52 +41,26 @@ function addEmployee() {
             <td>${employee.lastName}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td>${employee.salary}</td>
+            <td>$${employee.salary}</td>
             <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `); // adding new table row
     }// end else
-    
+
     employees.push(employee);
 
     $('.inputs').val(''); // clear inputs
 
-
     // SALARY CALCULATION
-    // salaryTotal.push(employee.salary)
-
-    // for (employee of employees){
-    //     let total = 0;
-    //     $('#monthlySalary').empty();
-    //     $('#monthlySalary').append(total);
-    // }
-
     $('#monthlySalary').empty();
     let total = 0;
     for (employee of employees) {
         total += Number(employee.salary);
-    }
+        }
     $('#monthlySalary').append(total);
+    }// end addEmployee
 
-
-}// end addEmployee
-
-// function monthlySalary() {
-//     $('#monthlySalary').empty();
-//     let total = 0;
-//     for (employee of employees){
-//         total += Number(employee.salary);
-//     }
-//         $('#monthlySalary').append(total);
-// }// end monthlySalary
-
-// console.log(salaryTotal);
-
-// DELETE EMPLOYEE
+    // DELETE EMPLOYEE
 function deleteEmployee() {
-    // console.log('clickBAM');
-    // console.log($(this).closest("tr"));
-    // // let removeRow = $(this).closest("tr");
-    // // $(this).remove(removeRow);
     $(this).closest("tr").remove();
-}
+}// end deleteEmployee
