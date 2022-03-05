@@ -1,3 +1,14 @@
 .warning {
     background-color: red;
 }
+
+table, td {
+    border: 1px solid black;
+    width: 1000px;
+  }
+
+th {
+    background-color: black;
+    color: white;
+    width: 1000px;
+}

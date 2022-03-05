@@ -1,6 +1,5 @@
 $(readyNow);
 
-// let fakeSalary = [50, 70, 100]
 let employees = []; // store employee info
 
 
