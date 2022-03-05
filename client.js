@@ -76,5 +76,9 @@ function addEmployee() {
 
 // DELETE EMPLOYEE
 function deleteEmployee(){
-    console.log('clickBAM');
+    // console.log('clickBAM');
+    // console.log($(this).closest("tr"));
+    // // let removeRow = $(this).closest("tr");
+    // // $(this).remove(removeRow);
+    $(this).closest("tr").remove();
 }
