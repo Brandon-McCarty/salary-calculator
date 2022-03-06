@@ -1,6 +1,7 @@
 $(readyNow);
 
 let employees = []; // store employee info
+let totalSalary = 0;
 
 
 function readyNow() {
@@ -27,7 +28,7 @@ function addEmployee() {
             <td>${employee.lastName}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td class="warning">$${employee.salary}</td>
+            <td class="warning salary">${employee.salary}</td>
             <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `);
@@ -40,7 +41,7 @@ function addEmployee() {
             <td>${employee.lastName}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td>$${employee.salary}</td>
+            <td class="salary">${employee.salary}</td>
             <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `); // adding new table row
@@ -52,14 +53,19 @@ function addEmployee() {
 
     // SALARY CALCULATION
     $('#monthlySalary').empty();
-    let total = 0;
-    for (employee of employees) {
-        total += Number(employee.salary);
-        }
-    $('#monthlySalary').append(total);
+    
+    totalSalary += Number(employee.salary);
+    console.log(totalSalary);
+    $('#monthlySalary').append(totalSalary);
     }// end addEmployee
 
     // DELETE EMPLOYEE
 function deleteEmployee() {
-    $(this).closest("tr").remove();
+    let salary = $(this).closest('tr')
+    $(this).closest('tr').remove();
+    console.log(salary.find('td:eq(4)').text());
+    totalSalary -= Number(salary.find('td:eq(4)').text());
+    console.log(totalSalary);
+    $('#monthlySalary').empty();
+    $('#monthlySalary').append(totalSalary);
 }// end deleteEmployee
