@@ -25,7 +25,7 @@ function addEmployee() {
             <td>${employee.lastName}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td class="warning">${employee.salary}</td>
+            <td class="warning">$${employee.salary}</td>
             <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `);
@@ -38,7 +38,7 @@ function addEmployee() {
             <td>${employee.lastName}</td>
             <td>${employee.id}</td>
             <td>${employee.title}</td>
-            <td>${employee.salary}</td>
+            <td>$${employee.salary}</td>
             <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `); // adding new table row
@@ -58,7 +58,7 @@ function addEmployee() {
 function deleteEmployee() {
     let salary = $(this).closest('tr')
     $(this).closest('tr').remove();
-    totalSalary -= Number(salary.find('td:eq(4)').text());
+    totalSalary -= Number(salary.find('td:eq(4)').text().substring(1));
     $('#monthlySalary').empty();
     $('#monthlySalary').append(totalSalary);
 }// end deleteEmployee
