@@ -35,11 +35,11 @@ function addEmployee() {
 
     // SALARY CALCULATION
     $('#monthlySalary').empty();
-    totalSalary += Number(employee.salary);
+    totalSalary += Number(employee.salary / 12);
     $('#monthlySalary').append(totalSalary);
 
     if (totalSalary > 20000) {
-    $('span').addClass("warning");
+    $('#monthlySalary').addClass("warning");
         }// end if
     }// end addEmployee
 
@@ -47,12 +47,12 @@ function addEmployee() {
 function deleteEmployee() {
     let salary = $(this).closest('tr');
     $(this).closest('tr').remove();
-    totalSalary -= Number(salary.find('td:eq(4)').text().substring(1));
+    totalSalary -= Number(salary.find('td:eq(4)').text().substring(1) / 12);
     $('#monthlySalary').empty();
     $('#monthlySalary').append(totalSalary);
 
     if (totalSalary < 20001) {
-        $('span').removeClass("warning");
+        $('#monthlySalary').removeClass("warning");
     }// end if
 }// end deleteEmployee
 
